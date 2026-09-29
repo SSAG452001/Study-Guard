@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sant Sri Asaramji Gurukul, Indore's Study Guard</title>
+<meta name="description" content="Study Guard - a study-focused DNS blocker for Android that blocks AI sites, AI apps and distractions while students study.">
+<style>
+:root{--bg:#04110a;--card:rgba(255,255,255,.06);--text:#eaf5ec;--mute:#9bb5a2;--g:#43a047;--g2:#81c784;--gold:#ffb300;--line:rgba(255,255,255,.14)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 75% -10%,#0f3d1c,transparent),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.w{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:rgba(4,17,10,.7);border-bottom:1px solid var(--line)}
+nav .w{display:flex;justify-content:space-between;align-items:center;height:62px}
+nav b{color:var(--g2);font-size:15px}nav a{color:var(--mute);text-decoration:none;font-size:14px;margin-left:18px}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--g),#1b5e20);color:#fff!important;padding:14px 26px;border-radius:12px;font-weight:700;text-decoration:none;border:0;font-size:15px;cursor:pointer;box-shadow:0 0 0 0 rgba(67,160,71,.6);animation:pulse 2.4s infinite}
+.btn.o{background:none;border:1.5px solid var(--g2);color:var(--g2)!important;animation:none;margin-left:8px}
+@keyframes pulse{70%{box-shadow:0 0 0 16px rgba(67,160,71,0)}100%{box-shadow:0 0 0 0 rgba(67,160,71,0)}}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;min-height:calc(100vh - 62px);padding:30px 0}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:600}
+.sch{margin:16px 0 0;font-size:clamp(18px,2.4vw,24px);color:var(--mute);font-weight:500}
+h1{font-size:clamp(44px,8vw,86px);line-height:1;margin:6px 0 16px;background:linear-gradient(120deg,#fff,var(--g2) 45%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200%;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:200%}}
+.lead{color:var(--mute);font-size:18px;max-width:520px;margin-bottom:26px}
+/* 3D stage */
+.stage{perspective:1300px;height:640px;display:flex;align-items:center;justify-content:center}
+.float{position:relative;width:270px;height:540px;transform-style:preserve-3d;animation:fl 6s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(-8px) rotateY(-14deg)}50%{transform:translateY(10px) rotateY(14deg)}}
+.ph{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .15s}
+.face{position:absolute;inset:0;background:#0b0b0b;border-radius:38px;padding:9px;box-shadow:0 0 60px rgba(67,160,71,.35)}
+.face.bk{transform:translateZ(-18px);background:#1a1a1a}
+.edge{position:absolute;top:30px;bottom:30px;width:18px;background:#222}.edge.l{left:-9px;transform:rotateY(-90deg)}.edge.r{right:-9px;transform:rotateY(90deg)}
+.scr{--sb:#E8F5E9;--sc:#fff;--st:#263238;--sm:#607d8b;--sg:#1B5E20;position:relative;height:100%;background:var(--sb);border-radius:30px;overflow:hidden;display:flex;flex-direction:column;color:var(--st);transform:translateZ(1px)}
+.ct{flex:1;overflow-y:auto;padding:24px 14px 8px;text-align:center}.ct::-webkit-scrollbar{display:none}
+.nv{display:flex;border-top:1px solid rgba(0,0,0,.1);background:var(--sc)}
+.nv button{flex:1;border:0;background:none;padding:11px 2px;font-size:11px;color:var(--sm);cursor:pointer}.nv .on{color:var(--sg);font-weight:700}
+.ct h4{margin:0;font-size:25px;color:var(--sg)}.s2{color:var(--sg);font-size:13px;margin:2px 0 8px}.d{font-size:12px;color:var(--sm);margin-bottom:8px}
+.st{font-weight:700;margin:8px 0}.rw{display:flex;justify-content:space-between;align-items:center;text-align:left;font-size:13px;padding:6px 0}
+.sw{width:40px;height:22px;border-radius:11px;background:#9e9e9e;position:relative;cursor:pointer;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s}.sw.on{background:var(--sg)}.sw.on::after{left:21px}
+.pb{width:100%;border:0;border-radius:8px;padding:11px;margin-top:8px;font-weight:600;cursor:pointer;background:var(--sg);color:#fff;animation:none;box-shadow:none}
+.ab{background:var(--sc);border-radius:10px;padding:12px;text-align:left;margin-top:12px;font-size:12px;color:var(--sm)}.ab b{color:var(--sg);font-size:14px}
+.gr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ap{background:none;border:0;cursor:pointer;color:var(--st);font-size:10px}.ap span{display:block;font-size:26px;background:var(--sc);border-radius:14px;padding:8px;margin-bottom:3px}
+.ts{position:absolute;left:10px;right:10px;bottom:56px;background:#323232;color:#fff;padding:9px;border-radius:18px;font-size:12px;opacity:0;transition:.3s;pointer-events:none;text-align:center}.ts.show{opacity:1}
+.ur{display:flex;gap:6px}.ur input{flex:1;min-width:0;padding:9px;border-radius:8px;border:1px solid rgba(0,0,0,.2)}.ur .pb{width:auto;margin:0;padding:0 12px}
+.pg{margin-top:12px;background:var(--sc);border-radius:10px;padding:14px;font-size:13px}.er{color:#e53935;font-weight:700;font-size:11px}
+.qb{width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(0,0,0,.15);background:var(--sc);color:var(--st);cursor:pointer;font-size:12px}
+/* orbit ring */
+.ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;animation:rs 18s linear infinite}
+@keyframes rs{to{transform:rotateY(360deg)}}
+.bd{position:absolute;margin:-31px;width:62px;height:62px;transform:rotateY(var(--a)) translateZ(230px);transform-style:preserve-3d}
+.bd i{display:block;width:62px;height:62px;line-height:62px;text-align:center;font-style:normal;font-size:30px;border-radius:18px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1.5px solid var(--g2);position:relative;animation:cs 18s linear infinite;transition:.4s}
+@keyframes cs{from{transform:rotateY(calc(-1*var(--a)))}to{transform:rotateY(calc(-1*var(--a) - 360deg))}}
+.bd i::after{content:"🚫";position:absolute;right:-8px;top:-8px;font-size:20px;opacity:0;transform:scale(0);transition:.4s}
+body.on .bd i{border-color:#e53935;filter:grayscale(1) brightness(.7)}body.on .bd i::after{opacity:1;transform:scale(1)}
+.hint{text-align:center;color:var(--mute);font-size:13px;margin-top:-30px}
+/* sections */
+section{padding:80px 0;position:relative;z-index:1}
+h2{font-size:clamp(28px,4vw,42px);margin:0 0 8px}h2 span{color:var(--g2)}.sub{color:var(--mute);margin:0 0 36px;max-width:640px}
+.mq{overflow:hidden;border-block:1px solid var(--line);background:rgba(0,0,0,.35);position:relative;z-index:1}
+.mq div{display:flex;gap:44px;white-space:nowrap;padding:14px 0;width:max-content;animation:mq 30s linear infinite;color:var(--mute);font-size:15px}
+@keyframes mq{to{transform:translateX(-50%)}}.mq s{text-decoration:line-through;text-decoration-color:#e53935}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;perspective:1000px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transform-style:preserve-3d;transition:transform .15s,border-color .3s;backdrop-filter:blur(8px)}
+.card:hover{border-color:var(--g2)}.card>*{transform:translateZ(30px)}
+.card .i{font-size:38px}.card h3{margin:8px 0 6px}.card p{margin:0;color:var(--mute);font-size:14px}
+.steps{display:grid;gap:16px;padding:0;list-style:none;counter-reset:s;perspective:1000px}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 18px 74px;position:relative;transform-style:preserve-3d;transition:transform .15s}
+.steps li::before{content:counter(s);position:absolute;left:20px;top:16px;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gold));color:#04110a;text-align:center;line-height:38px;font-weight:800;transform:translateZ(30px)}
+.dl{text-align:center;border:1px solid var(--line);border-radius:26px;padding:52px 24px;background:linear-gradient(160deg,rgba(67,160,71,.25),rgba(255,179,0,.08))}
+.small{font-size:13px;color:var(--mute);margin-top:14px}
+footer{border-top:1px solid var(--line);padding:30px 20px;text-align:center;color:var(--mute);font-size:14px;position:relative;z-index:1}
+.dev{max-height:0;overflow:hidden;opacity:0;transition:.5s;margin-top:0;max-width:560px}.dev.open{max-height:220px;opacity:1;margin-top:22px}
+.rv{opacity:0;transform:translate3d(0,40px,0) rotateX(12deg);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){.hero{grid-template-columns:1fr;text-align:center}.lead{margin-inline:auto}.bd{transform:rotateY(var(--a)) translateZ(175px)}nav a{display:none}.stage{height:600px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<canvas id="bg"></canvas>
+<nav><div class="w"><b>🛡️ Study Guard · Gurukul Indore</b><div><a href="#features">Features</a><a href="#how">How it works</a><a href="#about">Developer</a><a class="btn" style="padding:8px 16px;margin-left:18px;animation:none" href="#download">Download</a></div></div></nav>
+
+<div class="w hero">
+ <div>
+  <span class="tag">🌿 Green House ( Panini Sadan )</span>
+  <p class="sch">Sant Sri Asaramji Gurukul, Indore's</p>
+  <h1>Study Guard</h1>
+  <p class="lead">A study-focused DNS blocker for Android. It shuts out ChatGPT, Gemini and every other AI while you study, so students work out the answer instead of copying it.</p>
+  <a class="btn" href="#download">⬇ Download APK</a>
+ </div>
+ <div>
+  <div class="stage" id="stage"><div class="float">
+   <div class="ph" id="ph">
+    <div class="face bk"></div><div class="edge l"></div><div class="edge r"></div>
+    <div class="face"><div class="scr"><div class="ct" id="c"></div><div class="ts" id="t"></div><div class="nv" id="n"></div></div></div>
+   </div>
+   <div class="ring">
+    <div class="bd" style="--a:0deg"><i>🤖</i></div><div class="bd" style="--a:60deg"><i>✨</i></div><div class="bd" style="--a:120deg"><i>🧠</i></div>
+    <div class="bd" style="--a:180deg"><i>📸</i></div><div class="bd" style="--a:240deg"><i>▶️</i></div><div class="bd" style="--a:300deg"><i>🔎</i></div>
+   </div>
+  </div></div>
+  <p class="hint">👆 Move your mouse over the phone. Tap Start Study Mode and watch the orbit get blocked.</p>
+ </div>
+</div>
+
+<div class="mq"><div id="mq"></div></div>
+
+<section id="features"><div class="w">
+ <h2 class="rv">Built to protect <span>real learning</span></h2>
+ <p class="sub rv">Homework is one prompt away from finished. Study Guard keeps the thinking with the student.</p>
+ <div class="cards">
+  <div class="card tilt rv"><div class="i">🚫</div><h3>Blocks AI websites</h3><p>ChatGPT, Gemini, Claude, Perplexity, DeepSeek and homework-answer sites are stopped at the DNS level.</p></div>
+  <div class="card tilt rv"><div class="i">📱</div><h3>Blocks AI apps</h3><p>Open a blocked app and you are sent straight back to the home screen.</p></div>
+  <div class="card tilt rv"><div class="i">🎯</div><h3>Cuts distractions</h3><p>Optionally block social media and video apps during study time.</p></div>
+  <div class="card tilt rv"><div class="i">🔒</div><h3>Private by design</h3><p>Filtering runs on the phone itself. Browsing is not sent to any Study Guard server.</p></div>
+ </div>
+</div></section>
+
+<section id="how"><div class="w">
+ <h2 class="rv">How it <span>works</span></h2><p class="sub rv">Two layers of protection working together.</p>
+ <ol class="steps">
+  <li class="tilt rv"><b>DNS filter (local VPN)</b><br><span style="color:var(--mute)">Study Guard answers "site not found" for blocked domains and passes everything else through normally.</span></li>
+  <li class="tilt rv"><b>App blocker (Accessibility)</b><br><span style="color:var(--mute)">Detects a blocked app opening during Study Mode and returns you to the home screen.</span></li>
+  <li class="tilt rv"><b>You choose what to block</b><br><span style="color:var(--mute)">Pick AI, distractions, or both. Start Study Mode and focus.</span></li>
+ </ol>
+</div></section>
+
+<section id="download"><div class="w">
+ <div class="dl rv"><h2>Get <span>Study Guard</span></h2><p class="sub" style="margin-inline:auto">Free Android app · Version 1.0</p>
+ <a class="btn" href="app.apk" download>⬇ Download APK</a>
+ <p class="small">Android 7.0+ · Open the file and allow "Install unknown apps" if asked.</p></div>
+ <h3 style="margin:40px 0 16px">Setup after installing</h3>
+ <ol class="steps">
+  <li class="tilt rv">Open Study Guard, tap <b>Enable app blocking</b> and switch on Study Guard in Accessibility. On Android 13+, first allow "Restricted settings" from App info (⋮ menu).</li>
+  <li class="tilt rv">Tap <b>Start Study Mode</b> and accept the VPN prompt. It is only a local filter.</li>
+  <li class="tilt rv">In Chrome turn off <b>Use secure DNS</b>, and set Android Private DNS to Off so blocking cannot be bypassed.</li>
+ </ol>
+</div></section>
+
+<section id="about"><div class="w"><h2 class="rv">About the <span>developer</span></h2>
+ <p class="sub rv">Study Guard is built on one idea: real learning needs real effort.</p>
+ <button class="btn rv" id="dv" onclick="var b=document.getElementById('dvb');b.classList.toggle('open');this.textContent=b.classList.contains('open')?'✖ Hide':'👤 Meet the developer'">👤 Meet the developer</button>
+ <div class="dev" id="dvb"><div class="card">Built by <b>Raghav The Pathak</b> of Class XII Sci, at Green House ( Panini Sadan ), Sant Sri Asaramji Gurukul, Indore.</div></div></div></section>
+<footer>© 2026 Sant Sri Asaramji Gurukul, Indore's Study Guard · Green House ( Panini Sadan )</footer>
+
+<script>
+/* particles */
+var cv=document.getElementById('bg'),cx=cv.getContext('2d'),P=[],G='∑π√∫Δ∞≈01ABC+=?'.split('');
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+for(var i=0;i<45;i++)P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,v:.3+Math.random()*.8,s:12+Math.random()*16,c:G[i%G.length]});
+(function f(){cx.clearRect(0,0,cv.width,cv.height);P.forEach(function(p){p.y-=p.v;if(p.y<-20){p.y=cv.height+20;p.x=Math.random()*cv.width}cx.font=p.s+'px monospace';cx.fillStyle='rgba(129,199,132,.18)';cx.fillText(p.c,p.x,p.y)});requestAnimationFrame(f)})();
+/* marquee */
+var N=['ChatGPT','Gemini','Claude','Perplexity','DeepSeek','Brainly','Chegg','Instagram','YouTube','Snapchat','Netflix'];
+document.getElementById('mq').innerHTML=N.concat(N).map(function(n){return '<span>🛡️ <s>'+n+'</s> blocked</span>'}).join('');
+/* phone tilt */
+var st=document.getElementById('stage'),ph=document.getElementById('ph');
+st.addEventListener('mousemove',function(e){var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.transform='rotateX('+(-y*22)+'deg) rotateY('+(x*34)+'deg)'});
+st.addEventListener('mouseleave',function(){ph.style.transform=''});
+/* card tilt + reveal */
+document.querySelectorAll('.tilt').forEach(function(el){el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='rotateX('+(-y*14)+'deg) rotateY('+(x*14)+'deg)'});el.addEventListener('mouseleave',function(){el.style.transform=''})});
+var io=new IntersectionObserver(function(a){a.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+/* demo app */
+var S={dev:false,on:false,ai:true,dist:true,tab:'home',view:null,url:'chatgpt.com',res:null};
+var AI=['chatgpt.com','openai.com','gemini.google.com','claude.ai','perplexity.ai','deepseek.com','brainly.com','chegg.com','character.ai','copilot.microsoft.com'];
+var DI=['instagram.com','youtube.com','facebook.com','tiktok.com','snapchat.com','reddit.com','netflix.com','x.com'];
+var APPS=[['🤖','ChatGPT','ai'],['✨','Gemini','ai'],['🧠','Claude','ai'],['📸','Instagram','d'],['▶️','YouTube','d'],['🎬','Netflix','d'],['🧮','Calculator',''],['📖','Dictionary',''],['🗺️','Maps','']];
+function bh(h){h=h.toLowerCase();return[].concat(S.ai?AI:[],S.dist?DI:[]).some(function(d){return h===d||h.endsWith('.'+d)})}
+function toast(m){var t=document.getElementById('t');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+function sw(k){return '<div class="sw '+(S[k]?'on':'')+'" onclick="S.'+k+'=!S.'+k+';draw()"></div>'}
+function draw(){var h='';document.body.classList.toggle('on',S.on);
+ if(S.tab==='home'){h='<h4>Study Guard</h4><div class="s2">🌿 Green House ( Panini Sadan )</div><div class="d">Sant Sri Asaramji Gurukul, Indore</div>'+
+ '<div class="st" style="color:'+(S.on?'#1B5E20':'#e53935')+'">'+(S.on?'📚 STUDY MODE ON':'Study Mode is OFF')+'</div>'+
+ '<div class="rw">Block AI'+sw('ai')+'</div><div class="rw">Block distractions'+sw('dist')+'</div>'+
+ '<button class="pb" onclick="S.on=!S.on;draw();toast(S.on?\'DNS filter active\':\'Study Mode stopped\')">'+(S.on?'Stop Study Mode':'Start Study Mode')+'</button>'+
+ '<div class="ab"><b>About Developer</b><br>'+(S.dev?'Built by Raghav The Pathak of Class XII Sci.':'<button class="qb" onclick="S.dev=true;draw()">👤 Tap to view</button>')+'</div>'}
+ else if(S.tab==='apps'){h='<div class="d">Phone home screen - tap an app</div>';
+  if(S.view)h+='<div class="pg"><div style="font-size:40px">'+S.view[0]+'</div>'+S.view[1]+' opened normally.<button class="qb" onclick="S.view=null;draw()">Back</button></div>';
+  else h+='<div class="gr">'+APPS.map(function(a,i){return '<button class="ap" onclick="op('+i+')"><span>'+a[0]+'</span>'+a[1]+'</button>'}).join('')+'</div>'}
+ else{h='<div class="d">Browser - try a website</div><div class="ur"><input id="u" value="'+S.url+'" onkeydown="if(event.key===\'Enter\')go()"><button class="pb" onclick="go()">Go</button></div>';
+  if(S.res==='b')h+='<div class="pg"><div style="font-size:34px">🚫</div>This site can\'t be reached<div class="er">DNS_PROBE_FINISHED_NXDOMAIN</div></div>';
+  else if(S.res==='o')h+='<div class="pg"><div style="font-size:34px">✅</div><b>'+S.url.replace(/</g,'')+'</b> loaded normally.</div>';
+  h+=['chatgpt.com','gemini.google.com','wikipedia.org','ncert.nic.in'].map(function(d){return '<button class="qb" onclick="S.url=\''+d+'\';go()">'+d+'</button>'}).join('')}
+ document.getElementById('c').innerHTML=h;
+ document.getElementById('n').innerHTML=[['home','🛡️ Guard'],['apps','📱 Apps'],['web','🌐 Browser']].map(function(x){return '<button class="'+(S.tab===x[0]?'on':'')+'" onclick="S.tab=\''+x[0]+'\';draw()">'+x[1]+'</button>'}).join('')}
+function op(i){var a=APPS[i];if(S.on&&((a[2]==='ai'&&S.ai)||(a[2]==='d'&&S.dist))){toast('Study Mode is ON - focus! 📚');S.view=null}else S.view=a;draw()}
+function go(){var u=document.getElementById('u');if(u)S.url=u.value.trim().replace(/^https?:\/\//,'').split('/')[0];S.res=(S.on&&bh(S.url))?'b':'o';draw()}
+draw();
+</script></body></html>
