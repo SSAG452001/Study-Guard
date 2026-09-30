@@ -65,3 +65,7 @@ Blocked domains and apps can be edited in `Blocklist.kt`.
 ## 📄 Disclaimer
 
 This is a school project. Please get the school's permission before using its name or branding on a public website.
+
+## ⚠️ "Blocked by Play Protect" warning
+
+Because the APK is installed outside the Play Store, Google Play Protect may show a warning. This is normal. Tap **More details → Install anyway** (choose *Don't send* if it asks to scan). The website shows these steps before the download starts.
